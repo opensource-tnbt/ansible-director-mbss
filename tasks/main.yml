@@ -1,0 +1,13 @@
+---
+# tasks file for roles/rhosp_director
+- name: install several packages
+  yum:
+    name: "{{ director_packages_install }}"
+    state: latest
+  tags: prep
+
+- name: remove several packages
+  yum:
+    name: "{{ director_packages_remove }}"
+    state: absent
+  tags: prep

@@ -1,0 +1,28 @@
+---
+# defaults file for director
+director_packages_install:
+  - 'rsyslog'
+  - 'syslog-ng'
+  - 'aide'
+  - 'libselinux'
+director_packages_remove:
+  - 'prelink'
+  - 'dhcp'
+  - 'bind'
+  - 'vsftpd'
+  - 'httpd'
+  - 'ypbind'
+  - 'ypserv'
+  - 'rsh'
+  - 'rsh-server'
+  - 'samba'
+  - 'talk'
+  - 'talk-server'
+  - 'telnet-client'
+  - 'telnet-server'
+  - 'tftp'
+  - 'tftp-server'
+  - 'xinted'
+  - 'mcstrans'
+  - 'xorg-x11*'
+  - 'setroubleshoot'
