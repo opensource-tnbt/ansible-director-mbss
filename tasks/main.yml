@@ -4,10 +4,22 @@
   yum:
     name: "{{ director_packages_install }}"
     state: latest
-  tags: prep
+  tags: package
 
 - name: remove several packages
   yum:
     name: "{{ director_packages_remove }}"
     state: absent
-  tags: prep
+  tags: package
+
+- name: Enable Services
+  systemd:
+    name: "{{ services_enable }}"
+    state: started
+  tags: service
+
+- name: Disable Services
+  systemd:
+    name: "{{ services_disable }}"
+    state: stopped
+  tags: service
