@@ -23,3 +23,13 @@
     name: "{{ services_disable }}"
     state: stopped
   tags: service
+
+- name: Change Various Sysctl-Settings
+  sysctl:
+    name: '{{ item.key }}'
+    value: '{{ item.value }}'
+    sysctl_set: yes
+    state: present
+    reload: yes
+    ignoreerrors: yes
+  with_dict: '{{ sysctl_config }}'

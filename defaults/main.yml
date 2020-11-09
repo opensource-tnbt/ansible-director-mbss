@@ -6,6 +6,7 @@ director_packages_install:
   - 'aide'
   - 'libselinux'
   - 'cronie-anacron'
+
 director_packages_remove:
   - 'prelink'
   - 'dhcp'
@@ -27,6 +28,7 @@ director_packages_remove:
   - 'mcstrans'
   - 'xorg-x11*'
   - 'setroubleshoot'
+
 service_disable:
   - 'telnet.socket'
   - 'avahi-daemon'
@@ -43,7 +45,38 @@ service_disable:
   - 'dovecot'
   - 'squid'
   - 'syslog'
+
 service_disable:
   - 'crond'
   - 'rsyslog'
   - 'auditd'
+
+sysctl_config:
+  - fs.suid_dumpable: 0
+  - kernel.randomize_va_space: 2
+  - net.ipv4.conf.all.accept_redirects: 0
+  - net.ipv4.conf.all.accept_source_route: 0
+  - net.ipv4.conf.all.log_martians: 1
+  - net.ipv4.conf.all.secure_redirects: 0
+  - net.ipv4.conf.all.send_redirects: 0
+  - net.ipv4.conf.default.accept_redirects: 0
+  - net.ipv4.conf.default.accept_source_route: 0
+  - net.ipv4.conf.default.log_martians: 1
+  - net.ipv4.conf.default.secure_redirects: 0
+  - net.ipv4.conf.default.send_redirects: 0
+  - net.ipv4.icmp_echo_ignore_broadcasts: 1
+  - net.ipv4.icmp_ignore_bogus_error_responses: 1
+  - net.ipv4.ip_forward: 0
+  - net.ipv4.route.flush: 1
+  - net.ipv4.tcp_syncookies: 1
+  - net.ipv6.conf.all.accept_ra: 0
+  - net.ipv6.conf.all.accept_redirects: 0
+  - net.ipv6.conf.default.accept_ra: 0
+  - net.ipv6.conf.default.accept_redirects: 0
+  - net.ipv6.route.flush: 1
+
+chown_list
+
+chgrp_list
+
+
